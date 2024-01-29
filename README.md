@@ -15,10 +15,11 @@
 
 # Índice
 
-1. [Inicialización de un proyecto](#inicialización-de-un-proyecto)
+1. [Inicialización del proyecto](#inicialización-del-proyecto)
 2. [Ejecución del proyecto](#ejecución-del-proyecto)
+3. [Estructura del proyecto](#estructura-del-proyecto)
 
-### Inicialización de un proyecto
+### Inicialización del proyecto
 
 Para inicializar un proyecto en [Next.js 14](https://github.com/vercel/next.js), comenzamos ejecutando el siguiente comando:
 
@@ -51,7 +52,37 @@ Por lo tanto, si ingresamos desde nuestro navegador en http://localhost:3000, ob
 
 El archivo que contiene a esta página es `page.tsx` que se encuentra en la carpeta *app* dentro de la carpeta *src*. 
 
+### Estructura del proyecto
 
+Inicialmente, tenemos la siguiente estructura del proyecto:
+
+![Next.js 14](https://i.postimg.cc/dQSpWzVZ/next-js-14-codev-4.jpg "Estructura del proyecto")
+
+- El archivo `package.json` contiene todas las dependencias y scripts del proyecto.
+
+- El archivo `next.config.mjs` es un archivo de configuración de [Next.js](https://github.com/vercel/next.js).
+
+- El archivo `tailwind.config.ts` es un archivo de configuración de Tailwind CSS.
+
+- El archivo `postcss.config.js` es un archivo de configuración del documento final generado y publicado en CSS.
+
+- El archivo `.gitignore` que indica cuáles son los archivos que no van a ser subidos al repositorio.
+
+- La carpeta `.next` se genera cuando se ejecutan los scripts de desarrollo o compilación.
+
+- La carpeta `node_modules` es donde se instalan todas las dependencias de nuestro proyecto.
+
+- La carpeta `public` contiene todos los archivos estáticos como imagenes y archivos *svg*. 
+
+- Por último, la carpeta `src` es la más importante del proyecto. Dentro de ella, se encuentra la carpeta `app`, que contiene todo el contenido de nuestra aplicación. Dentro de ella, se encuentran los siguientes archivos:
+
+- El archivo `favicon.ico` contiene el logo que muestra en la pestaña del navegador.
+
+- El archivo `globals.css` contiene todos los estilos globales de la aplicación.
+
+- El archivo `layout.tsx` contiene la interfaz del usuario que se puede compartir en diferentes páginas de la aplicación. 
+
+- El archivo `page.tsx` contiene la interfaz del usuario que vemos al ingresar en http://localhost:3000/. 
 
 
 
