@@ -20,6 +20,7 @@
 3. [Estructura del proyecto](#estructura-del-proyecto)
 4. [Routing](#routing)
 5. [Rutas anidadas](#rutas-anidadas)
+6. [Rutas dinámicas](#rutas-dinámicas)
 
 ### Inicialización del proyecto
 
@@ -135,6 +136,33 @@ Por último renderizamos las vistas de http://localhost:3000/blog, http://localh
 ![Next.js 14](https://i.postimg.cc/HLVsxzkj/next-js-14-codev-12.jpg "Routing")
 
 ![Next.js 14](https://i.postimg.cc/N0SGrXKD/next-js-14-codev-13.jpg "Routing")
+
+### Rutas dinámicas
+
+El cuarto escenario consiste en crear la vista para renderizar http://localhost:3000/products que contiene una lista de tres productos. Luego, al clickear cada uno de ellos queremos que se redirija a la página http://localhost:3000/products/id con id el número del producto.  
+
+Para lograr esto, vamos a utilizar las **rutas dinámicas** porque no es conveniente crear una carpeta *products* y dentro de ellas, una para cada producto en el caso que tengamos 1000 productos por ejemplo.
+
+Inicialmente, comenzamos creando la lista de productos en el archivo `page.tsx` dentro de la carpeta *products* de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/c4kR6sRm/next-js-14-codev-14.jpg "Rutas dinamicas")
+
+Guardamos los cambios y obtenemos el siguiente resultado:
+
+![Next.js 14](https://i.postimg.cc/nhsvD6Tt/next-js-14-codev-15.jpg "Rutas dinamicas")
+
+Ahora, vamos a crear las rutas dinámicas. Como queremos crear rutas del estilo http://localhost:3000/products/id con id que puede tomar el valor 1, 10 o 10500. Entonces, al parámetro dinámico lo llamamos `productId` y para ello, creamos una carpeta dentro de *products* llamada `[productId]` donde los `[]` le dan un marco dinámico y dentro de ella, el archivo `page.tsx`.
+
+![Next.js 14](https://i.postimg.cc/26zRcpH1/next-js-14-codev-16.jpg "Rutas dinamicas")
+
+
+Ahora, en el archivo `page.tsx`, tomamos el parámetro `params` de tipo `string` y lo desestructuramos para pasar su valor como `productId`.
+
+![Next.js 14](https://i.postimg.cc/6qZ3r2Yr/next-js-14-codev-17.jpg "Rutas dinamicas")
+
+Finalmente, renderizando y pasando el parámetro 10 se obtiene el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/k4zGRFFM/next-js-14-codev-18.jpg "Rutas dinamicas")
 
 
 
