@@ -21,6 +21,7 @@
 4. [Routing](#routing)
 5. [Rutas anidadas](#rutas-anidadas)
 6. [Rutas dinámicas](#rutas-dinámicas)
+7. [Rutas dinámicas anidadas](#rutas-dinámicas-anidadas)
 
 ### Inicialización del proyecto
 
@@ -163,6 +164,25 @@ Ahora, en el archivo `page.tsx`, tomamos el parámetro `params` de tipo `string`
 Finalmente, renderizando y pasando el parámetro 10 se obtiene el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/k4zGRFFM/next-js-14-codev-18.jpg "Rutas dinamicas")
+
+### Rutas dinámicas anidadas
+
+El quinto escenario consiste en crear la vista para renderizar http://localhost:3000/products/1/reviews/1 que contiene *Review 1 for product 1*. 
+
+Para ello, vamos a utilizar como punto de partida el escenario anterior que habiamos logrado renderizar la vista para http://localhost:3000/products/1/.
+
+Entonces, resta agregar *reviews/1*. Por lo tanto, creamos la carpeta `reviews`, dentro de ella, otra carpeta llamada `[reviewId]` para el parámetro dinámico y por último, el archivo `page.tsx` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/xdZZbt84/next-js-14-codev-19.jpg "Rutas dinamicas anidadas")
+
+Finalmente, si renderizamos http://localhost:3000/products/30/reviews/12 obteenmos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/s2x8XtjW/next-js-14-codev-20.jpg "Rutas dinamicas anidadas")
+
+
+
+
+
 
 
 
