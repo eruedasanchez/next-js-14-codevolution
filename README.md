@@ -18,6 +18,7 @@
 1. [Inicialización del proyecto](#inicialización-del-proyecto)
 2. [Ejecución del proyecto](#ejecución-del-proyecto)
 3. [Estructura del proyecto](#estructura-del-proyecto)
+4. [Routing](#routing)
 
 ### Inicialización del proyecto
 
@@ -82,7 +83,52 @@ Inicialmente, tenemos la siguiente estructura del proyecto:
 
 - El archivo `layout.tsx` contiene la interfaz del usuario que se puede compartir en diferentes páginas de la aplicación. 
 
-- El archivo `page.tsx` contiene la interfaz del usuario que vemos al ingresar en http://localhost:3000/. 
+- El archivo `page.tsx` contiene la interfaz del usuario que vemos al ingresar en http://localhost:3000/
+
+### Routing
+
+Para comenzar a explorar el concepto de **Routing**, lo primero que vamos a hacer es eliminar la carpeta `app` de nuestro proyecto. 
+
+Una vez realizado esto, veamos los posibles siguientes escenarios:
+
+1. El primer escenario consiste en renderizar la vista correspondiente a http://localhost:3000/ y que se muestre por pantalla el texto *Home Page*.
+
+Para ello, dentro de la carpeta *src*, creamos la carpeta *app* y dentro de ella, el archivo `page.tsx` (debe tener exactamnete ese nombre) que corresponde al Home Page gracias al sistema de enrutamiento de [Next.js 14](https://github.com/vercel/next.js) y colocamos el contenido propuesto. El resultado obtenido se ve de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/fytrrhCW/next-js-14-codev-5.jpg "Routing")
+
+Y si, ingresamos a http://localhost:3000/, podemos observar que se renderiza la vista del archivo `page.tsx`:
+
+![Next.js 14](https://i.postimg.cc/W3fy84Mf/next-js-14-codev-6.jpg "Routing")
+
+Observemos que una vez creado el archivo `page.tsx`, también se crea automaticamente el archivo `layout.tsx`.
+
+2. El segundo escenario consiste en renderizar la vista correspondiente a http://localhost:3000/about mostrando por pantalla *About Page* y http://localhost:3000/profile mostrando por pantalla *Profile Page*.
+
+Para ello, creamos dentro de la carpeta *app*, dos carpetas *about* y *profile*. Dentro de cada una de ellas, creamos el archivo `page.tsx` con el contenido correspondiente.
+
+El esquema de carpetas nos queda de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/7PcHY35d/next-js-14-codev-7.jpg "Routing")
+
+Por último renderizamos las vistas de http://localhost:3000/about y http://localhost:3000/profile y obtenemos el resultado esperado. 
+
+![Next.js 14](https://i.postimg.cc/NjrF6NH1/next-js-14-codev-8.jpg "Routing")
+
+![Next.js 14](https://i.postimg.cc/KYSzJnPC/next-js-14-codev-9.jpg "Routing")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
