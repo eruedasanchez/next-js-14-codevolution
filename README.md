@@ -19,6 +19,7 @@
 2. [Ejecución del proyecto](#ejecución-del-proyecto)
 3. [Estructura del proyecto](#estructura-del-proyecto)
 4. [Routing](#routing)
+5. [Rutas anidadas](#rutas-anidadas)
 
 ### Inicialización del proyecto
 
@@ -116,6 +117,25 @@ Por último renderizamos las vistas de http://localhost:3000/about y http://loca
 ![Next.js 14](https://i.postimg.cc/NjrF6NH1/next-js-14-codev-8.jpg "Routing")
 
 ![Next.js 14](https://i.postimg.cc/KYSzJnPC/next-js-14-codev-9.jpg "Routing")
+
+### Rutas anidadas
+
+El tercer escenario consiste en renderizar la vista correspondiente a http://localhost:3000/blog mostrando por pantalla *Blog Page*, http://localhost:3000/blog/first mostrando por pantalla *First Blog Page* y http://localhost:3000/blog/second mostrando por pantalla *Second Blog Page*.
+
+Para ello, creamos dentro de la carpeta *app*, una carpeta *blog* y dentro de ella, dos carpetas *first* y *second*. Dentro de cada una de ellas, creamos el archivo `page.tsx` con el contenido correspondiente.
+
+El esquema de carpetas nos queda de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/CKVw40hT/next-js-14-codev-10.jpg "Routing")
+
+Por último renderizamos las vistas de http://localhost:3000/blog, http://localhost:3000/blog/first y http://localhost:3000/blog/second obteniendo el resultado esperado. 
+
+![Next.js 14](https://i.postimg.cc/76zH1L7k/next-js-14-codev-11.jpg "Routing")
+
+![Next.js 14](https://i.postimg.cc/HLVsxzkj/next-js-14-codev-12.jpg "Routing")
+
+![Next.js 14](https://i.postimg.cc/N0SGrXKD/next-js-14-codev-13.jpg "Routing")
+
 
 
 
