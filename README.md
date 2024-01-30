@@ -28,6 +28,7 @@
 11. [Carpetas Privadas](#carpetas-privadas)
 12. [Grupo de Rutas](#grupo-de-rutas)
 13. [Layouts](#layouts)
+14. [Layouts anidados](#layouts-anidados)
 
 ### Inicialización del proyecto
 
@@ -310,6 +311,16 @@ Por ejemplo, si exploramos http://localhost:3000/ o http://localhost:3000/forgot
 ![Next.js 14](https://i.postimg.cc/1tZv5yv9/next-js-14-codev-41.jpg "Layouts")
 
 ![Next.js 14](https://i.postimg.cc/rmCQD7H5/next-js-14-codev-42.jpg "Layouts")
+
+### Layouts anidados
+
+Supongamos que queremos crear un layout particular pero solo para aquellas páginas del tipo http://localhost:3000/products/[productId]. Para ello, vamos a crear un archivo `layout.tsx` dentro de la carpeta `[productId]`.
+
+![Next.js 14](https://i.postimg.cc/3wb8DJyH/next-js-14-codev-43.jpg "Layouts")
+
+Por lo tanto, si navegamos a http://localhost:3000/products/10, obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/W44p3J1n/next-js-14-codev-44.jpg "Layouts")
 
 
 
