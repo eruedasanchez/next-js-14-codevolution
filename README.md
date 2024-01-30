@@ -25,6 +25,7 @@
 8. [Capturando todos los segmentos](#capturando-todos-los-segmentos)
 9. [Not Found Page](#not-found-page)
 10. [Colocación de Archivos](#colocación-de-archivos)
+11. [Carpetas Privadas](#carpetas-privadas)
 
 ### Inicialización del proyecto
 
@@ -251,6 +252,23 @@ Por lo tanto, para solucionar este problema, debemos crear el archivo `page.tsx`
 Si navegamos a http://localhost:3000/dashboard, obtenemos el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/05MBq0pC/next-js-14-codev-35.jpg "Colocación de Archivos")
+
+### Carpetas Privadas
+
+Para la creación de carpetas privadas que no va a reconocer el sistema de enroutamiento de [Next.js](https://github.com/vercel/next.js), basta con colocar el nombre de la carpeta anteponiendole únicamente el simbolo guion bajo, por ejemplo, `_lib` 
+
+![Next.js 14](https://i.postimg.cc/xTxXJd9f/next-js-14-codev-36.jpg "Colocación de Archivos")
+
+Las ventajas de crear este tipo de carpetas son:
+
+- Separar la lógica UI de la lógica de Routing
+
+- Organizar de una manera consistente los archivos internos del projecto
+
+- Ordenar y agrupar los archivos en editores de código
+
+- Prevenir potenciales conflictos de *naming* con futuras convenciones de archivos de *Next.js*
+
 
 
 
