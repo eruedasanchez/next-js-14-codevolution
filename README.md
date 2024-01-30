@@ -22,6 +22,8 @@
 5. [Rutas anidadas](#rutas-anidadas)
 6. [Rutas dinámicas](#rutas-dinámicas)
 7. [Rutas dinámicas anidadas](#rutas-dinámicas-anidadas)
+8. [Capturando todos los segmentos](#capturando-todos-los-segmentos)
+
 
 ### Inicialización del proyecto
 
@@ -175,9 +177,42 @@ Entonces, resta agregar *reviews/1*. Por lo tanto, creamos la carpeta `reviews`,
 
 ![Next.js 14](https://i.postimg.cc/xdZZbt84/next-js-14-codev-19.jpg "Rutas dinamicas anidadas")
 
-Finalmente, si renderizamos http://localhost:3000/products/30/reviews/12 obteenmos el resultado esperado.
+Finalmente, si renderizamos http://localhost:3000/products/30/reviews/12 obtenemos el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/s2x8XtjW/next-js-14-codev-20.jpg "Rutas dinamicas anidadas")
+
+### Capturando todos los segmentos
+
+El sexto escenario consiste en crear vistas para renderizar los siguientes sitios:
+
+![Next.js 14](https://i.postimg.cc/3R2rWy1z/next-js-14-codev-21.jpg "Capturando todos los segmentos")
+
+Para ello, comenzamos creando la carpeta `docs` y dentro de ella la carpeta `[...slug]` que va a contener todos los parámetros dinámicos que sigan a continuación y por último, el archivo `page.tsx` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/mkzNx0Hy/next-js-14-codev-22.jpg "Capturando todos los segmentos")
+
+De esta manera, se renderizan las páginas de acuerdo a cuantos parámetros dinámicos tenga cada dirección.
+
+![Next.js 14](https://i.postimg.cc/6pfMWx89/next-js-14-codev-23.jpg "Capturando todos los segmentos")
+
+![Next.js 14](https://i.postimg.cc/438wcvvq/next-js-14-codev-24.jpg "Capturando todos los segmentos")
+
+Observemos sin embargo, si buscamos http://localhost:3000/docs obtenemos que la página no se encuentra.
+
+![Next.js 14](https://i.postimg.cc/d0CBD7tc/next-js-14-codev-25.jpg "Capturando todos los segmentos")
+
+De hecho, esto es correcto porque creamos la carpeta `docs` pero no el archivo `page.tsx`
+
+Sin embargo, podriamos considerar que no tiene parámetros y tendría que retornar la vista *Docs Home Page*.
+
+Para ello, renombramos la carpeta `[...slug]` como `[[...slug]]` y en el archivo `page.tsx`, colocamos como opcional la propiedad *length*, o sea, `slug?.length` de la siguiente manera: 
+
+![Next.js 14](https://i.postimg.cc/HLQBLJB8/next-js-14-codev-26.jpg "Capturando todos los segmentos")
+
+Finalmente, ejecutamos la dirección y obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/WzJD2ZwQ/next-js-14-codev-27.jpg "Capturando todos los segmentos")
+
 
 
 
