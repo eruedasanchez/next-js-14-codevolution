@@ -24,7 +24,7 @@
 7. [Rutas dinámicas anidadas](#rutas-dinámicas-anidadas)
 8. [Capturando todos los segmentos](#capturando-todos-los-segmentos)
 9. [Not Found Page](#not-found-page)
-
+10. [Colocación de Archivos](#colocación-de-archivos)
 
 ### Inicialización del proyecto
 
@@ -233,6 +233,28 @@ Ahora, supongamos que queremos retornar una página customizada cuando el númer
 Por lo tanto, si exploramos http://localhost:3000/products/1/reviews/1001 obtenemos el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/FRWkcBXS/next-js-14-codev-31.jpg "Not Found Page")
+
+### Colocación de Archivos
+
+Ahora, creamos la carpeta `dashboard` y dentro de ella, el archivo `line-chart.tsx`
+
+![Next.js 14](https://i.postimg.cc/SK4BpKqf/next-js-14-codev-32.jpg "Colocación de Archivos")
+
+Si navegamos hacía esa ruta, podemos observar que se arroja la página customizada de errores que habíamos definido anteriormente en el archivo `not-found.tsx`
+
+![Next.js 14](https://i.postimg.cc/FFP9v8PJ/next-js-14-codev-33.jpg "Colocación de Archivos")
+
+Por lo tanto, para solucionar este problema, debemos crear el archivo `page.tsx` dentro de *dashboard* para que se visualice el contenido del dashboard. Adicionalmente, creamos tambien la carpeta `componentes` dentro de `src` para tener mejor estructurado el proyecto.
+
+![Next.js 14](https://i.postimg.cc/xdbZLRcT/next-js-14-codev-34.jpg "Colocación de Archivos")
+
+Si navegamos a http://localhost:3000/dashboard, obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/05MBq0pC/next-js-14-codev-35.jpg "Colocación de Archivos")
+
+
+
+
 
 
 
