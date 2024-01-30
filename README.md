@@ -27,6 +27,7 @@
 10. [Colocación de Archivos](#colocación-de-archivos)
 11. [Carpetas Privadas](#carpetas-privadas)
 12. [Grupo de Rutas](#grupo-de-rutas)
+13. [Layouts](#layouts)
 
 ### Inicialización del proyecto
 
@@ -295,6 +296,20 @@ Sin embargo, si navegamos a http://localhost:3000/register, http://localhost:300
 Por lo tanto, podemos solucionarlo navegando a http://localhost:3000/auth/register, http://localhost:3000/auth/login o http://localhost:3000/auth/forgot-password 
 
 Sin embargo, una mejor practica resulta en agruparlos y obviar el parámetro `auth`. Esto lo logramos simplemente renombrando a la carpeta `auth` como `(auth)`.
+
+### Layouts
+
+Comenzamos analizando inicialmente el archivo `layout.tsx` que se encuentra dentro de la carpeta `app`.
+
+Este archivo contiene la interfaz única para todas las páginas. Por lo tanto, si agregamos un **header** y un **footer** como se muestra a continuación, esto indica que tanto el header como se van a visualizar en todas las direcciones que tengamos definidas.
+
+![Next.js 14](https://i.postimg.cc/7ZVcRG9g/next-js-14-codev-40.jpg "Layouts")
+
+Por ejemplo, si exploramos http://localhost:3000/ o http://localhost:3000/forgot-password observamos que solo cambia el contenido del `children` de la página mientras que el header y el footer quedan siempre fijos.  
+
+![Next.js 14](https://i.postimg.cc/1tZv5yv9/next-js-14-codev-41.jpg "Layouts")
+
+![Next.js 14](https://i.postimg.cc/rmCQD7H5/next-js-14-codev-42.jpg "Layouts")
 
 
 
