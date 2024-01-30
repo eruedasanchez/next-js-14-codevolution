@@ -1,10 +1,16 @@
+import Link from "next/link";
+
 const Products = () => {
+    const ONE = 1;
+    const TWO = 2;
+    const THREE = 3;
+
     return (
         <>
             <h1>Lista de productos</h1>
-            <p>Producto1</p>
-            <p>Producto2</p>
-            <p>Producto3</p>
+            <Link href={`products/${ONE}`}>Producto1</Link>
+            <Link href={`products/${TWO}`}>Producto2</Link>
+            <Link href={`products/${THREE}`} replace>Producto3</Link>
         </>
     )
 }

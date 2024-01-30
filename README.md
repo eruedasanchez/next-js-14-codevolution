@@ -32,6 +32,8 @@
 15. [Route Group Layout](#route-group-layout)
 16. [Routing Metadata](#routing-metadata)
 17. [Title Metadata](#title-metadata)
+18. [Link Component Navigation](#link-component-navigation)
+
 
 
 
@@ -401,11 +403,27 @@ Ahora, nos centramos en la función de Metadata y vemos que el campo `title` pue
 
 ![Next.js 14](https://i.postimg.cc/sXNbH8YF/next-js-14-codev-55.jpg "Routing Metadata")
 
+### Link Component Navigation
 
+Comencemos viendo el primer ejemplo donde vamos a realizar la navegación desde http://localhost:3000/ a http://localhost:3000/blog haciendo click en un elemento de UI (boton por ejemplo).
 
+Para ello, [Next.js](https://github.com/vercel/next.js) nos provee del componente `Link`.
 
+Entonces, como queremos ir desde http://localhost:3000/ a http://localhost:3000/blog, vamos a trabajar en el archivo `page.tsx` que se encuentra en la carpeta `app` y tambien creamos un enlace que nos regrese al Home Page desde about.
 
+![Next.js 14](https://i.postimg.cc/rw0n8kdz/next-js-14-codev-56.jpg "Link Component Navigation")
 
+Ahora, pasamos a un ejemplo de navegación sobre Rutas Dinámicas.
+
+En la página de productos, tenemos una lista de 3 productos y queremos que al clickear cada uno de ellos, se abra el detalle del producto correspondiente. Para ello, realizamos los siguientes cambios en el archivo `page.tsx` de la carpeta `products`.
+
+![Next.js 14](https://i.postimg.cc/xTFpDC1W/next-js-14-codev-57.jpg "Link Component Navigation")
+
+Una vez realizado estos cambios, agregamos la propiedad `replace` al componente Link correspondiente al producto tres. Esto indica que al presionar el boton de regresar atras del navegador, no va a regresar atras sino que va a situarse en la página anterior que se esté definida a la última del historial.
+
+Por ejemplo, si estabamos en http://localhost:3000/dashboard, pasamos a http://localhost:3000/products, clickeamos en el producto 3, nos situamos en http://localhost:3000/products/3 y presionamos el boton de atras, regrresamos a http://localhost:3000/dashboard.
+
+![Next.js 14](https://i.postimg.cc/xdL6z332/next-js-14-codev-58.jpg "Link Component Navigation")
 
 
 
