@@ -30,6 +30,7 @@
 13. [Layouts](#layouts)
 14. [Layouts anidados](#layouts-anidados)
 15. [Route Group Layout](#route-group-layout)
+16. [Routing Metadata](#routing-metadata)
 
 
 
@@ -341,6 +342,43 @@ Luego, para esta carpeta creamos un archivo `layout.tsx` donde colocamos la inte
 
 Una vez comprobado que funciona esto, deshacemos los cambios, eliminamos el archivo `layout.tsx` de la carpeta `(with-auth-layout)` y volvemos a colocar las carpetas `login` y `register` dentro de `(auth)`.
 
+### Routing Metadata
+
+[Next.js](https://github.com/vercel/next.js) introduce el concepto de **Metadata API** que permite definir la metadata para página.
+
+Metadata garantiza que se muestre la información precisa y relevante cuando las páginas se comparten o indexan.
+
+Existen dos métodos para configurar metadatos en un diseño:
+
+- El archivo TSX exporta un objeto de metadata estático
+
+- El archivo TSX exporta una función dinámica de generación de Metadatos.
+
+Antes de continuar, recordemos algunas reglas de la Metadata:
+
+1. Tanto los archivos `layout.tsx` como `page.tsx` pueden exportar Metadata. Si se definen en `layout.tsx`, se aplican a todas las páginas que se encuentra en ese layout mientras que si se definen en `page.tsx`, se aplican unicamente a dicha página.
+
+2. La Metadata es leida en orden desde el nivel principal/root descendiendo hasta el último nivel de página.
+
+3. Cuando hay Metadata en múltiples lugares para la misma ruta, se combinan, pero la Metadata del nivel de página se reemplaza por la Metadata del nivel de layout si tienen las mismas propiedades.
+
+Entonces, comenzamos agregando Metadata de manera estática en el archivo `page.tsx` que se encuentra dentro de la carpeta `about`.
+
+![Next.js 14](https://i.postimg.cc/KzHq36Gs/next-js-14-codev-49.jpg "Routing Metadata")
+
+Si inspeccionamos el navegador, podemos observar que el nombre del titulo es el definido en el archivo pero la descripción sigue siendo la misma que en el Root Layout porque no se agrego en este archivo y por lo tanto, se combinan.
+
+![Next.js 14](https://i.postimg.cc/1XVWGv4R/next-js-14-codev-50.jpg "Routing Metadata")
+
+Ahora, vamos a ver la generación de Metadatos en una ruta dinámica como la de `[productId]`.
+
+Esto lo hacemos en el archivo `page.tsx` de la carpeta `[productId]` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/dV7sxxVR/next-js-14-codev-51.jpg "Routing Metadata")
+
+Una vez realizado esto, si inspeccionamos la  dirección http://localhost:3000/products/1 observamos que el titulo es dinámico de acuerdo al *productId* que se pasa por parámetro.
+
+![Next.js 14](https://i.postimg.cc/m2pZVsB2/next-js-14-codev-52.jpg "Routing Metadata")
 
 
 
