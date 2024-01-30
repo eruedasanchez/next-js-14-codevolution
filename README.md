@@ -23,6 +23,7 @@
 6. [Rutas dinámicas](#rutas-dinámicas)
 7. [Rutas dinámicas anidadas](#rutas-dinámicas-anidadas)
 8. [Capturando todos los segmentos](#capturando-todos-los-segmentos)
+9. [Not Found Page](#not-found-page)
 
 
 ### Inicialización del proyecto
@@ -212,6 +213,31 @@ Para ello, renombramos la carpeta `[...slug]` como `[[...slug]]` y en el archivo
 Finalmente, ejecutamos la dirección y obtenemos el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/WzJD2ZwQ/next-js-14-codev-27.jpg "Capturando todos los segmentos")
+
+### Not Found Page
+
+Por defecto, sabemos que cuando una ruta no se encuentra definida, se retorna la página predeterminada de Vercel con el error 404. 
+
+Ahora bien, si queremos customizar esta ruta, debemos crear dentro de la carpeta *app*, el archivo necesariamente con el nombre exacto `not-found.tsx`.
+
+![Next.js 14](https://i.postimg.cc/pdZcZhzb/next-js-14-codev-28.jpg "Not Found Page")
+
+Si exploramos la página que no se encuentra definida, obtenemos la página de not-found customizada.
+
+![Next.js 14](https://i.postimg.cc/Kjg5dRkY/next-js-14-codev-29.jpg "Not Found Page")
+
+Ahora, supongamos que queremos retornar una página customizada cuando el número de la review sea mayor a 1000. Para ello, creamos dentro de la carpeta `[reviewId]` el archivo `not-found.tsx` e importamos la función `not-found` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/qRVPjbJt/next-js-14-codev-30.jpg "Not Found Page")
+
+Por lo tanto, si exploramos http://localhost:3000/products/1/reviews/1001 obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/FRWkcBXS/next-js-14-codev-31.jpg "Not Found Page")
+
+
+
+
+
 
 
 
