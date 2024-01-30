@@ -26,6 +26,7 @@
 9. [Not Found Page](#not-found-page)
 10. [Colocación de Archivos](#colocación-de-archivos)
 11. [Carpetas Privadas](#carpetas-privadas)
+12. [Grupo de Rutas](#grupo-de-rutas)
 
 ### Inicialización del proyecto
 
@@ -269,6 +270,31 @@ Las ventajas de crear este tipo de carpetas son:
 
 - Prevenir potenciales conflictos de *naming* con futuras convenciones de archivos de *Next.js*
 
+### Grupo de Rutas
+
+El grupo de rutas permite agrupar rutas y archivos del proyecto sin afectar la estructura de la URL.
+
+Para entender el concepto, vamos a implementar las siguientes rutas de autenticación:
+
+- Registro
+- Login
+- Olvido de contraseña
+
+Para ello, comenzamos creando tres (3) carpetas dentro de `app` para cada una de las rutas y dentro de ellas, el archivo `page.tsx`
+
+![Next.js 14](https://i.postimg.cc/CK5JmqkR/next-js-14-codev-37.jpg "Grupo de Rutas")
+
+Sin embargo, podemos observar que las rutas de autenticación se encuentran dispersas por todos lados. Para solucionar esto, vamos a crear la carpeta `auth` y dentro de ella, vamos a colocar las tres carpetas de autenticación definidas anteriormente.
+
+![Next.js 14](https://i.postimg.cc/x8LWn4fJ/next-js-14-codev-38.jpg "Grupo de Rutas")
+
+Sin embargo, si navegamos a http://localhost:3000/register, http://localhost:3000/login o http://localhost:3000/forgot-password observamos que se muestra el error customizado de la página `not-found.tsx`
+
+![Next.js 14](https://i.postimg.cc/Nf65zGcY/next-js-14-codev-39.jpg "Grupo de Rutas")
+
+Por lo tanto, podemos solucionarlo navegando a http://localhost:3000/auth/register, http://localhost:3000/auth/login o http://localhost:3000/auth/forgot-password 
+
+Sin embargo, una mejor practica resulta en agruparlos y obviar el parámetro `auth`. Esto lo logramos simplemente renombrando a la carpeta `auth` como `(auth)`.
 
 
 
