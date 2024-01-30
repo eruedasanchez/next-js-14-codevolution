@@ -29,6 +29,9 @@
 12. [Grupo de Rutas](#grupo-de-rutas)
 13. [Layouts](#layouts)
 14. [Layouts anidados](#layouts-anidados)
+15. [Route Group Layout](#route-group-layout)
+
+
 
 ### Inicialización del proyecto
 
@@ -322,7 +325,21 @@ Por lo tanto, si navegamos a http://localhost:3000/products/10, obtenemos el res
 
 ![Next.js 14](https://i.postimg.cc/W44p3J1n/next-js-14-codev-44.jpg "Layouts")
 
+### Route Group Layout
 
+Para ver este concepto, vamos a comenzar moviendo las carpetas `login` y `register` que se encuentran en `(auth)` a una nueva carpeta que llamamos `(with-auth-layout)`.
+
+Luego, para esta carpeta creamos un archivo `layout.tsx` donde colocamos la interfaz particular que solo va a ser visible para los componentes de *login* y *reguster* y no para *forgot-password*.
+
+![Next.js 14](https://i.postimg.cc/MTkXPmwG/next-js-14-codev-45.jpg "Route Group Layout")
+
+![Next.js 14](https://i.postimg.cc/sgNMSR07/next-js-14-codev-46.jpg "Route Group Layout")
+
+![Next.js 14](https://i.postimg.cc/rpRKNYvb/next-js-14-codev-47.jpg "Route Group Layout")
+
+![Next.js 14](https://i.postimg.cc/JznyGhKR/next-js-14-codev-48.jpg "Route Group Layout")
+
+Una vez comprobado que funciona esto, deshacemos los cambios, eliminamos el archivo `layout.tsx` de la carpeta `(with-auth-layout)` y volvemos a colocar las carpetas `login` y `register` dentro de `(auth)`.
 
 
 
