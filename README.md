@@ -31,6 +31,7 @@
 14. [Layouts anidados](#layouts-anidados)
 15. [Route Group Layout](#route-group-layout)
 16. [Routing Metadata](#routing-metadata)
+17. [Title Metadata](#title-metadata)
 
 
 
@@ -379,6 +380,34 @@ Esto lo hacemos en el archivo `page.tsx` de la carpeta `[productId]` de la sigui
 Una vez realizado esto, si inspeccionamos la  dirección http://localhost:3000/products/1 observamos que el titulo es dinámico de acuerdo al *productId* que se pasa por parámetro.
 
 ![Next.js 14](https://i.postimg.cc/m2pZVsB2/next-js-14-codev-52.jpg "Routing Metadata")
+
+### Title Metadata
+
+El propósito fundamental del campo **titulo** o **title** es definir el titulo del documento. Este puede ser una cadena o un objeto.
+
+Veamos un ejemplo de objeto. Para ello, nos dirigimos al archivo `layout.tsx` principal dentro de la carpeta `app` y realizamos los siguientes cambios:
+
+Ahora, nos centramos en la función de Metadata y vemos que el campo `title` puede tener tiene tres propiedades:
+
+1. La propiedad `default` indica que toda página que no tenga definida una función generadora de Metadata, va a adoptar el titulo definido en el campo *default*. En este caso, *Next.js Tutorial - HelloWorld*. 
+
+![Next.js 14](https://i.postimg.cc/k5w0KDDg/next-js-14-codev-53.jpg "Routing Metadata")
+
+2. La propiedad `template` indica que toda página que tenga que tenga definida una función generadora de Metadata, va a colocar el nombre que tenga definido en el campo `title` en lugar de `%s`.
+
+![Next.js 14](https://i.postimg.cc/5yQTh3gX/next-js-14-codev-54.jpg "Routing Metadata")
+
+3. La propiedad `absolute` indica que dicha página va a llevar ese nombre y no va a poder ser sobreescrito.
+
+![Next.js 14](https://i.postimg.cc/sXNbH8YF/next-js-14-codev-55.jpg "Routing Metadata")
+
+
+
+
+
+
+
+
 
 
 
