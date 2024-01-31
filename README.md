@@ -40,7 +40,10 @@
 23. [Error Handling](#error-handling)
 24. [Recovering from Errors](#recovering-from-wrrors)
 25. [Handling Errors en Rutas Anidadas](#handling-errors-en-rutas-anidadas)
-26. [Handling Errors in Layouts](#handling-errors-en-rutas-layouts)
+26. [Handling Errors in Layouts](#handling-errors-in-layouts)
+27. [Parallel Routes](#parallel-routes)
+
+
 
 ### Inicialización del proyecto
 
@@ -571,6 +574,35 @@ El error se produce en que no se puede cargar el error `Error Loading Products`.
 Por lo tanto, luego de recargar la página varias veces hasta que el numero random generado sea igual, se va a mostrar el error generado como queriamos probar.
 
 ![Next.js 14](https://i.postimg.cc/qMsn5H16/next-js-14-codev-79.jpg "Handling Errors in Layouts")
+
+### Parallel Routes
+
+En esta sección nos vamos a enfocar en las **rutas paralelas**. Cómo definirlass y los beneficios que ofrecen al crear interfaces de usuarios dinámicas y complejas.
+
+Las rutas paralelas son un mecanismo avanzado de ruteo que permite el renderizado simultaneo de multiples páginas dentro del mismo layout.
+
+Vamos a plantear el siguiente escenario. Supongamos que queremos crear un **dashboard** complejo. Dicho panel requiere mostrar las vistas de **User analytics**, **Revenue Metrics** y **Notifications**.
+
+Para ello, podriamos crear componentes para cada sección y los organizariamos en archivos `layout.tsx` dentro de la carpeta `dashboard`. 
+
+Dado que ya tenemos una carpeta `dashboard`, creamos otra llamada `complex-dashboard` y dentro de ella, vamos a crear las carpetas `@notifications`, `@revenue` y `@users` que van a contienen el contenido de cada sección y llevan adelante el simbolo `@` que indica que funcionan como rutas paralelas. Además, podemos notar que al crearlas con el simbolo `@` no afectan a la creación de nuevas rutas, es decir, si por ejemplo navego a http://localhost:3000/users observamos que la ruta no existe.  
+
+Además, creamos un componente `Card` dentro de la carpeta `components` para envolver el contenido de cada una de las secciones.
+
+![Next.js 14](https://i.postimg.cc/8PLnCkSz/next-js-14-codev-80.jpg "Parallel Routes")
+
+Finalmente, recargamos la página y obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/7PFWDGjR/next-js-14-codev-81.jpg "Parallel Routes")
+
+Por último, veamos algunos beneficios de las rutas en paralelo:
+
+- Un claro beneficio de las rutas paralelas es la habilidad de dividir un único *layout* en varias ranuras, haciendo que el código sea más facil de manejar. Esto es particularmente beneficioso cuando diferentes equipos trabajan en varias secciones de la página.
+
+- Aunque el verdadero beneficio de las rutas paralelas radica en la capacidad para el manejo independiente de rutas y subnavegación. Esto significa que cada sección puede tener sus propios estados de control y errores. Esto es beneficioso porque, por ejemplo, si la sección de *User Analitycs* se encuentra cargando podemos colocar un *loading* mientras que si la sección de *Revenue metrics* arroja un error lo podemos mostrar y si la sección de *notifications* carga correctamente, podemos mostrar su contenido sin problemas.
+
+
+
 
 
 
