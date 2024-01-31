@@ -39,6 +39,10 @@
 22. [Loading UI](#loading-ui)
 23. [Error Handling](#error-handling)
 24. [Recovering from Errors](#recovering-from-wrrors)
+25. [Handling Errors en Rutas Anidadas](#handling-errors-en-rutas-anidadas)
+
+
+
 
 ### Inicialización del proyecto
 
@@ -535,6 +539,21 @@ Para asegurarnos que la recuperación se produzca del lado del cliente, debemos 
 ![Next.js 14](https://i.postimg.cc/zvkNL1m6/next-js-14-codev-73.jpg "Recovering from Errors")
 
 Por lo tanto, hasta que el número random generado no sea igual a 1, no vamos a poder utilizar el boton pero cuando sea 1, con presionar el boton se va a solucionar el error.
+
+### Handling Errors en Rutas Anidadas
+
+Para comenzar a ver este concepto, movemos al archivo `error.tsx` que se encuentra en la carpeta `[reviewId]` a la carpeta `products`.
+
+![Next.js 14](https://i.postimg.cc/RFhhGc20/next-js-14-codev-74.jpg "Handling Errors en Rutas Anidadas")
+
+De esta manera, podemos observar que cuando el número random generado es 1, se muestra el error por la página pero no el componente correspondiente a `[reviewId]`.
+
+![Next.js 14](https://i.postimg.cc/LXWXWJM3/next-js-14-codev-75.jpg "Handling Errors en Rutas Anidadas")
+
+Ahora, si volvemos a colocar al archivo `error.tsx` dentro de la carpeta `[reviewId]`, observamos que si se renderiza el componente correspondiente a `[reviewId]`. 
+
+![Next.js 14](https://i.postimg.cc/Gts2nbLw/next-js-14-codev-76.jpg "Handling Errors en Rutas Anidadas")
+
 
 
 
