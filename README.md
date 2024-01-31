@@ -37,11 +37,8 @@
 20. [Navigating Programmatically](#navigating-programmatically)
 21. [Templates](#templates)
 22. [Loading UI](#loading-ui)
-
-
-
-
-
+23. [Error Handling](#error-handling)
+24. [Recovering from Errors](#recovering-from-wrrors)
 
 ### Inicialización del proyecto
 
@@ -489,6 +486,59 @@ Para ver esto, vamos a crear el archivo `loading.tsx` en la carpeta `blog` con e
 ![Next.js 14](https://i.postimg.cc/7h9SJV0P/next-js-14-codev-65.jpg "Loading UI")
 
 Ahora, una vez que naveguemos hacia http://localhost:3000/blog, vamos a ver que previamente se carga el contenido de "Loading blog" y luego el contenido de `page.tsx`.
+
+### Error Handling
+
+Ahora, nos centraremos en el manejo de errores a través de un archivo especial llamado `error.tsx`.
+
+Comenzamos viendo que si navegamos a obtenemos el resultado que definimos previamente.
+
+![Next.js 14](https://i.postimg.cc/FK0RZZCm/next-js-14-codev-66.jpg "Error Handling")
+
+Ahora, modificamos el archivo `page.tsx` de la carpeta `[reviewId]` creando una función que genere un numero entero random y en caso de que sea el 1, arrojar un error.
+
+![Next.js 14](https://i.postimg.cc/QN1299zL/next-js-14-codev-67.jpg "Error Handling")
+
+Sin embargo, si recargamos la página podemos observar que [Next.js](https://github.com/vercel/next.js) nos arroja el siguiente error:
+
+![Next.js 14](https://i.postimg.cc/6qrgDgZ6/next-js-14-codev-68.jpg "Error Handling")
+
+Ahora, para poder solucionar este problema, vamos a contruir el proyecto y luego lo vamos a correr ejecutando los siguientes comandos:
+
+```bash
+$ npm run build
+$ npm run start
+```
+
+Obtenemos el siguiente resultado:
+
+![Next.js 14](https://i.postimg.cc/HxBLhRBQ/next-js-14-codev-69.jpg "Error Handling")
+
+Pero cuando intentamos navegar nuevamente, obtenemos nuevamente un error.
+
+![Next.js 14](https://i.postimg.cc/LXHXv2B9/next-js-14-codev-70.jpg "Error Handling")
+
+Ahora, para solucionar este problema, creamos el archivo `error.tsx` dentro de la carpeta `[reviewId]` para que se muestre el mensaje de error en el que caso de que se produzca uno.
+
+![Next.js 14](https://i.postimg.cc/7PJTYLCT/next-js-14-codev-71.jpg "Error Handling")
+
+Por lo tanto, si reiniciamos el servidor (`crtl + c` y el comando `npm run dev`) y navegamos a http://localhost:3000/products/2/reviews/1 vemos que ahora si se muestra el error con su mensaje.
+
+![Next.js 14](https://i.postimg.cc/PJDL66GM/next-js-14-codev-72.jpg "Error Handling")
+
+### Recovering from Errors
+
+Ahora, vamos a tratar de cuando se produce un error que no podría ser grave, intentar recuperarnos con un boton de *Try Again*. Para ello, activamos la función de reinicio que pasamos por parámetro al componente `ErrorBoundary` y que se va a ejecutar cuando se clickee en el boton de *Try Again*.
+
+Para asegurarnos que la recuperación se produzca del lado del cliente, debemos agregar `'use client'` al inicio de archivo `page.tsx`.
+
+![Next.js 14](https://i.postimg.cc/zvkNL1m6/next-js-14-codev-73.jpg "Recovering from Errors")
+
+Por lo tanto, hasta que el número random generado no sea igual a 1, no vamos a poder utilizar el boton pero cuando sea 1, con presionar el boton se va a solucionar el error.
+
+
+
+
 
 
 
