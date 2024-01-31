@@ -33,6 +33,7 @@
 16. [Routing Metadata](#routing-metadata)
 17. [Title Metadata](#title-metadata)
 18. [Link Component Navigation](#link-component-navigation)
+19. [Active Links](#active-links)
 
 
 
@@ -424,6 +425,29 @@ Una vez realizado estos cambios, agregamos la propiedad `replace` al componente 
 Por ejemplo, si estabamos en http://localhost:3000/dashboard, pasamos a http://localhost:3000/products, clickeamos en el producto 3, nos situamos en http://localhost:3000/products/3 y presionamos el boton de atras, regrresamos a http://localhost:3000/dashboard.
 
 ![Next.js 14](https://i.postimg.cc/xdL6z332/next-js-14-codev-58.jpg "Link Component Navigation")
+
+### Active Links
+
+Ahora, vamos a introducir el concepto de **Active Links**. Para ello, creamos el archivo `layout.tsx` con el siguiente contenido: 
+
+![Next.js 14](https://i.postimg.cc/sgY9pLv3/next-js-14-codev-59.jpg "Active Links")
+
+Luego, si navegamos a http://localhost:3000/login, http://localhost:3000/register o a http://localhost:3000/forgot-password, observamos que siempre se encuentra la especie de menú para acceder a los 3 links.
+
+![Next.js 14](https://i.postimg.cc/BZzgsDrf/next-js-14-codev-60.jpg "Active Links")
+
+Ahora, vamos a importar el hook `usePathname` que nos devuelve un string con la dirección actual en la que estamos navegando y definimos la constante `isActive` para declarar cuál es la URL en la que estamos navegando y de acuerdo a ello, aplicar los estilos necesarios.
+
+Es muy importante no olvidar de crear el archivo `styles.css` para importar los estilos de TailwindCSS.
+
+![Next.js 14](https://i.postimg.cc/2S371NtJ/next-js-14-codev-61.jpg "Active Links")
+
+Finalmente, recargamos la página y obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/yYLT68Lc/next-js-14-codev-62.jpg "Active Links")
+
+
+
 
 
 
