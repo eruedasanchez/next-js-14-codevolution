@@ -36,6 +36,9 @@
 19. [Active Links](#active-links)
 20. [Navigating Programmatically](#navigating-programmatically)
 21. [Templates](#templates)
+22. [Loading UI](#loading-ui)
+
+
 
 
 
@@ -469,6 +472,23 @@ Una vez agregado el input, podemos observar que si navegamos de http://localhost
 Para crear un template, basta con solo renombrra el archivo `layout.tsx` por `template.tsx`
 
 ![Next.js 14](https://i.postimg.cc/4xL1M7Rm/next-js-14-codev-64.jpg "Templates")
+
+### Loading UI
+
+Hasta el momento, nos hemos enfocado en cuatro tipos de archivos:
+
+- `page.tsx` 
+- `layout.tsx`
+- `template.tsx`
+- `not-found.tsx`
+
+Ahora, nos enfocaremos en otro archivo especial llamado `loading.tsx`. Este archivo permite crear estados de carga que se muestran a los usuarios mientras se carga el contenido de un segmento de ruta especifico. El estado de carga aparece inmediatamente despues de la navegación, lo que brinda a los usuarios la seguridad de que la aplicación responde y carga contenido de forma activa.
+
+Para ver esto, vamos a crear el archivo `loading.tsx` en la carpeta `blog` con el siguiente contenido:
+
+![Next.js 14](https://i.postimg.cc/7h9SJV0P/next-js-14-codev-65.jpg "Loading UI")
+
+Ahora, una vez que naveguemos hacia http://localhost:3000/blog, vamos a ver que previamente se carga el contenido de "Loading blog" y luego el contenido de `page.tsx`.
 
 
 
