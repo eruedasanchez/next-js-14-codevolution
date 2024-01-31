@@ -42,8 +42,7 @@
 25. [Handling Errors en Rutas Anidadas](#handling-errors-en-rutas-anidadas)
 26. [Handling Errors in Layouts](#handling-errors-in-layouts)
 27. [Parallel Routes](#parallel-routes)
-
-
+28. [Unmatched Routes](#unmatched-routes)
 
 ### Inicialización del proyecto
 
@@ -601,8 +600,40 @@ Por último, veamos algunos beneficios de las rutas en paralelo:
 
 - Aunque el verdadero beneficio de las rutas paralelas radica en la capacidad para el manejo independiente de rutas y subnavegación. Esto significa que cada sección puede tener sus propios estados de control y errores. Esto es beneficioso porque, por ejemplo, si la sección de *User Analitycs* se encuentra cargando podemos colocar un *loading* mientras que si la sección de *Revenue metrics* arroja un error lo podemos mostrar y si la sección de *notifications* carga correctamente, podemos mostrar su contenido sin problemas.
 
+### Unmatched Routes
+
+En esta sección, profundizaremos en un aspecto crucial del enrutamiento en [Next.js](https://github.com/vercel/next.js), que es el manejo de **rutas incomparables**.
+
+En el caso de nuestro dashboard, estamos navegando entre una lista predeterminada de notificaciones y una lista de archivos de notificaciones como se muestra a continuación.
+
+![Next.js 14](https://i.postimg.cc/TPQwm5z2/next-js-14-codev-82.jpg "Unmatched Routes")
+
+Entonces, vamos a implementar este escenario. Para ello, vamos a realizar las siguientes modificaciones en los archivos `page.tsx` de la carpeta `@notifications` y creamos la carpeta `archived` con el archivo `page.tsx`.
+
+![Next.js 14](https://i.postimg.cc/C11K4L0G/next-js-14-codev-83.jpg "Unmatched Routes")
+
+Por lo tanto, recargamos la página y obtenemos el resultado esperado cuando navegamos por la sección de notificaciones.
+
+![Next.js 14](https://i.postimg.cc/QxtdGMKv/next-js-14-codev-84.jpg "Unmatched Routes")
+
+![Next.js 14](https://i.postimg.cc/tRD4M6Jh/next-js-14-codev-85.jpg "Unmatched Routes")
+
+Ahora, estando en http://localhost:3000/complex-dashboard/archived y si recargamos la página, observamos que la página arroja un erro aunque se encuentra definida la ruta indicada.
+
+![Next.js 14](https://i.postimg.cc/xd1T3Ty0/next-js-14-codev-86.jpg "Unmatched Routes")
+
+En nuestro escenario, para evitar la presencia de errores 404 al recargar la página. En nuestro dashboard, solo el componente `@notifications` contiene el archivo que produc error de tipo 404. Para ello, comenzamos definiendo un archivo llamado `default.tsx` dentro de la carpeta `complex-dashboard`. Luego, hacemos lo mismo para las carpetas `@revenue` y `@users` como se muestra a continuación.
+
+![Next.js 14](https://i.postimg.cc/Y94rTnsZ/next-js-14-codev-87.jpg "Unmatched Routes")
+
+Una vez realizado esto, vemos como se soluciona el error 404 y se vuelve a mostrar el dashboard sin problemas.
+
+![Next.js 14](https://i.postimg.cc/d0NQHP4G/next-js-14-codev-88.jpg "Unmatched Routes")
 
 
+
+
+<!-- Unmatched Routes -->
 
 
 
