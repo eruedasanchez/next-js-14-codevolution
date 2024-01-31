@@ -40,9 +40,7 @@
 23. [Error Handling](#error-handling)
 24. [Recovering from Errors](#recovering-from-wrrors)
 25. [Handling Errors en Rutas Anidadas](#handling-errors-en-rutas-anidadas)
-
-
-
+26. [Handling Errors in Layouts](#handling-errors-en-rutas-layouts)
 
 ### Inicialización del proyecto
 
@@ -554,7 +552,25 @@ Ahora, si volvemos a colocar al archivo `error.tsx` dentro de la carpeta `[revie
 
 ![Next.js 14](https://i.postimg.cc/Gts2nbLw/next-js-14-codev-76.jpg "Handling Errors en Rutas Anidadas")
 
+### Handling Errors in Layouts
 
+Ahora, cambiaremos el enfoque al manejo de errores dentro de los layouts.
+
+El límite de error no detecta los errores arrojados aquí porque están anidado dentro de los componentes de layout.
+
+Veamos esto con un ejercicio práctico. Para ello, comenzamos copiando el archivo `error` que se encuentra dentro de la carpeta `[reviewId]` y lo pegamos en la carpeta `[productId]` y modificamos el archivo `layout.tsx` de la siguiente manera y en  el archivo `page.tsx` comentamos la linea de arrojar error para no provocar confusiones.
+
+![Next.js 14](https://i.postimg.cc/x1QDyMZV/next-js-14-codev-77.jpg "Handling Errors in Layouts")
+
+Ahora, vemos que si recargamos nuevamente la página, obtenemos el siguiente error:
+
+![Next.js 14](https://i.postimg.cc/Qx1ZT00q/next-js-14-codev-78.jpg "Handling Errors in Layouts")
+
+El error se produce en que no se puede cargar el error `Error Loading Products`. Para solucionar esto, basta simplemente con trasladar el archivo `error.tsx` dentro de la carpeta `products`.
+
+Por lo tanto, luego de recargar la página varias veces hasta que el numero random generado sea igual, se va a mostrar el error generado como queriamos probar.
+
+![Next.js 14](https://i.postimg.cc/qMsn5H16/next-js-14-codev-79.jpg "Handling Errors in Layouts")
 
 
 
