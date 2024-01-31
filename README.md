@@ -35,6 +35,7 @@
 18. [Link Component Navigation](#link-component-navigation)
 19. [Active Links](#active-links)
 20. [Navigating Programmatically](#navigating-programmatically)
+21. [Templates](#templates)
 
 
 
@@ -455,10 +456,19 @@ Para ello, no vamos a crear un formulario pero vamos a mostrar el concepto naveg
 
 Por lo tanto, comenzamos creando la carpeta `order-product` dentro de la carpeta `app` y el archivo `page.tsx` con el siguiente contenido:
 
-![Next.js 14](https://i.postimg.cc/g21zrKZv/next-js-14-codev-63.jpg "Active Links")
+![Next.js 14](https://i.postimg.cc/g21zrKZv/next-js-14-codev-63.jpg "Navigating Programmatically")
 
 En este archivo, creamos la función `handleClick` para el boton Place Order para que cuando hacemos click en él, nos rediriga a http://localhost:3000/. Para esto, podemos aplicar `router.push('/')` o `router.back()` 
 
+### Templates
+
+Para comenzar a desarrollar, el concepto de **templates**, comenzando modificando el archivo `layout.tsx` que se encuentra en la carpeta `(auth)`.
+
+Una vez agregado el input, podemos observar que si navegamos de http://localhost:3000/login completando el input a http://localhost:3000/register, el valor colocado en el input tambien se conserva en http://localhost:3000/register. Sin embargo, al usar templates, una nueva instancia del componente es montada, los elementos del DOM son recreados, los estados no se preservan y los efectos son resincronizados.
+
+Para crear un template, basta con solo renombrra el archivo `layout.tsx` por `template.tsx`
+
+![Next.js 14](https://i.postimg.cc/4xL1M7Rm/next-js-14-codev-64.jpg "Templates")
 
 
 
