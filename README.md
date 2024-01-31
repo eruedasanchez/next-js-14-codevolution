@@ -34,6 +34,7 @@
 17. [Title Metadata](#title-metadata)
 18. [Link Component Navigation](#link-component-navigation)
 19. [Active Links](#active-links)
+20. [Navigating Programmatically](#navigating-programmatically)
 
 
 
@@ -446,6 +447,17 @@ Finalmente, recargamos la página y obtenemos el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/yYLT68Lc/next-js-14-codev-62.jpg "Active Links")
 
+### Navigating Programmatically
+
+Ahora, supongamos que estamos navegando en www.amazon.com/order, completamos el formulario y somos redirigidos a la página de confirmación del pedido www.amazon.com/confirm. Para ello, vamos a utilizar el concepto de la Navegación mediante programación o **Navigating Programmatically**. 
+
+Para ello, no vamos a crear un formulario pero vamos a mostrar el concepto navegando desde http://localhost:3000/order-product a http://localhost:3000/
+
+Por lo tanto, comenzamos creando la carpeta `order-product` dentro de la carpeta `app` y el archivo `page.tsx` con el siguiente contenido:
+
+![Next.js 14](https://i.postimg.cc/g21zrKZv/next-js-14-codev-63.jpg "Active Links")
+
+En este archivo, creamos la función `handleClick` para el boton Place Order para que cuando hacemos click en él, nos rediriga a http://localhost:3000/. Para esto, podemos aplicar `router.push('/')` o `router.back()` 
 
 
 
