@@ -45,6 +45,9 @@
 28. [Unmatched Routes](#unmatched-routes)
 29. [Conditional Routes](#conditional-routes)
 30. [Intercepting Routes](#intercepting-routes)
+31. [Parallel Intercepting Routes](#parallel-intercepting-routes)
+
+
 
 ### Inicialización del proyecto
 
@@ -703,6 +706,20 @@ Para ello, creamos la carpeta `(...)about` y el archivo `page.tsx` que contiene 
 Finalmente, vemos que cuando navegamos hacia http://localhost:3000/about la ruta es interceptada pero cuando recargamos la página se muestra la vista de about sin problemas.
 
 ![Next.js 14](https://i.postimg.cc/MKNVDF3v/next-js-14-codev-98.jpg "Intercepting Routes")
+
+### Parallel Intercepting Routes
+
+En esta sección, vamos a ver un ejemplo donde se combinan las **rutas paralelas** y la **intercepción de rutas**.
+
+Comenzamos creando la carpeta `photo-feed` dentro de la carpeta `app`. Luego, creamos adentro de `photo-feed`, creamos la carpeta `photos` y colocamos las imagenes de las 7 maravillas del mundo. Una vez hecho, creamos el archivo `wonders.ts` donde vamos a importar cada una de las imagenes y colocar *metadata*.
+
+Una vez hecho, creamos el archivo `page.tsx` que va a renderizar el contenido de la página correspondiente a http://localhost:3000/photo-feed.
+
+Luego, creamos la carpeta `[id]` con el archivo `page.tsx` para que funcione como una ruta dinámica que atrapa todos los números de las maravillas.
+
+Ahora, que ya tenemos creado la página dimnámica para cada maravilla, vamos a interceptar la navegación desde el feed a la página de detalles. Como queremos un modelo que represente la imagen por encima del feed actual, vamos a crear una ruta paralela. Para ello, dentro de la carpeta `photo-feed` vamos a crear una carpeta `@model` que funciona como ruta paralela.
+
+Luego, en el archivo `layout.tsx` de la carpeta `photo-feed`, pasamos el modal y el children para que se rendericen.
 
 
 
