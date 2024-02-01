@@ -43,6 +43,7 @@
 26. [Handling Errors in Layouts](#handling-errors-in-layouts)
 27. [Parallel Routes](#parallel-routes)
 28. [Unmatched Routes](#unmatched-routes)
+29. [Conditional Routes](#conditional-routes)
 
 ### Inicialización del proyecto
 
@@ -630,10 +631,29 @@ Una vez realizado esto, vemos como se soluciona el error 404 y se vuelve a mostr
 
 ![Next.js 14](https://i.postimg.cc/d0NQHP4G/next-js-14-codev-88.jpg "Unmatched Routes")
 
+### Conditional Routes
+
+Las rutas paralelas ofrecen una forma de implementar las **rutas condicionales**. Por ejemplo, según el estado de autenticación del usuario, puede optar por representar el *dashboard* para usuarios autenticados o una página de inicio de sesión para aquellos que no lo están. Esto es realmente poderoso porque permite un código completamente separado en la misma URL.
+
+Veamos esto con el siguiente ejemplo. Para ello, comenzamos creando en la carpeta `complex-dashboard` la carpeta `@login` y el archivo `page.tsx`. 
+
+Una vez creado dicho archivo, definimos la variable `isLoggedIn` para que renderice una vista de login de un usuario predeterminado o sino la vista correspondiente al archivo `page.tsx` de la carpeta `@login`.
+
+![Next.js 14](https://i.postimg.cc/Z5DYHR3P/next-js-14-codev-89.jpg "Conditional Routes")
+
+Si seteamos la variable en true, obtenemos el siguiente resultado:
+
+![Next.js 14](https://i.postimg.cc/X7LYZxYz/next-js-14-codev-90.jpg "Conditional Routes")
+
+Mientras que si seteamos la variable en `false`, obtenemos el siguiente resultado:
+
+![Next.js 14](https://i.postimg.cc/rwpF5WdF/next-js-14-codev-91.jpg "Conditional Routes")
 
 
 
-<!-- Unmatched Routes -->
+
+
+
 
 
 
