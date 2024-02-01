@@ -48,8 +48,7 @@
 31. [Parallel Intercepting Routes](#parallel-intercepting-routes)
 32. [Route Handlers](#route-handlers)
 33. [Handling GET Request](#handling-get-request)
-
-
+34. [Handling POST Request](#handling-post-request)
 
 ### Inicialización del proyecto
 
@@ -774,6 +773,22 @@ Luego, creamos el **Route Handler** en el archivo `route.ts` y obtenemos la info
 Luego, para probar el controlador de rutas, utilizamos Thunder Client presionando el boton **New Request** para realizar la solicitud GET a ese endpoint y vemos que el resultado de la solicitud es el esperado.
 
 ![Next.js 14](https://i.postimg.cc/rwmGhkbW/next-js-14-codev-105.jpg "Handling GET Request")
+
+### Handling POST Request
+
+En esta sección, vamos a aprender a cómo manejar una solicitud de tipo POST.
+
+Para ello, debemos publicar un nuevo comentario en el arreglo  `data` de la carpeta `comments`. Por lo tanto, vamos a solicitar una nueva request de tipo POST a http://localhost:3000/comments de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/SNwL47Ls/next-js-14-codev-106.jpg "Handling POST Request")
+
+Podemos observar que la solicitud arroja un error de tipo 405 porque no tenemos una función para manejar la solicitud POST. Entonces, la creo en el archivo `route.ts`.
+
+![Next.js 14](https://i.postimg.cc/BnHTnLNC/next-js-14-codev-107.jpg "Handling POST Request")
+
+Por último, detenemos la ejecución de nuestro servidor (ejecutamos `ctrl +c`). Luego, volvemos a correr el servidor con `npm run dev` y realizamos la solicitud POST viendo como ahora si, se publica el nuevo comentario en el arreglo `comments`.
+
+
 
 
 
