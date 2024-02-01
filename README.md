@@ -49,6 +49,10 @@
 32. [Route Handlers](#route-handlers)
 33. [Handling GET Request](#handling-get-request)
 34. [Handling POST Request](#handling-post-request)
+35. [Handling POST Request](#handling-post-request)
+36. [Dynamic Route Handlers](#dynamic-route-handlers)
+
+
 
 ### Inicialización del proyecto
 
@@ -787,6 +791,20 @@ Podemos observar que la solicitud arroja un error de tipo 405 porque no tenemos 
 ![Next.js 14](https://i.postimg.cc/BnHTnLNC/next-js-14-codev-107.jpg "Handling POST Request")
 
 Por último, detenemos la ejecución de nuestro servidor (ejecutamos `ctrl +c`). Luego, volvemos a correr el servidor con `npm run dev` y realizamos la solicitud POST viendo como ahora si, se publica el nuevo comentario en el arreglo `comments`.
+
+### Dynamic Route Handlers
+
+En las dos secciones anteriores, vimos como manejar las solicitudes GET y POST. El siguiente paso va a ser enfocarse en cómo manejar las solicitudes PATCH y DELETE.
+
+Pero, primero vamos a enfocarnos en cómo obtener un determinado comentario pasando el número de id de manera dinámica. Por ejemplo, http://localhost:3000/comments/1.
+
+Para resolver esto, comenzamos creando una carpeta `[id]` dentro de `comments`. Una vez situados en `[id]`, creamos el archivo `route.ts` y definimos una función de tipo GET.
+
+![Next.js 14](https://i.postimg.cc/44tJfq0V/next-js-14-codev-108.jpg "Handling POST Request")
+
+Luego, probamos el endpoint http://localhost:3000/comments/1 con el método GET y obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/SRWqgY9D/next-js-14-codev-109.jpg "Handling POST Request")
 
 
 
