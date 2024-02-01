@@ -46,8 +46,7 @@
 29. [Conditional Routes](#conditional-routes)
 30. [Intercepting Routes](#intercepting-routes)
 31. [Parallel Intercepting Routes](#parallel-intercepting-routes)
-
-
+32. [Route Handlers](#route-handlers)
 
 ### Inicialización del proyecto
 
@@ -720,6 +719,43 @@ Luego, creamos la carpeta `[id]` con el archivo `page.tsx` para que funcione com
 Ahora, que ya tenemos creado la página dimnámica para cada maravilla, vamos a interceptar la navegación desde el feed a la página de detalles. Como queremos un modelo que represente la imagen por encima del feed actual, vamos a crear una ruta paralela. Para ello, dentro de la carpeta `photo-feed` vamos a crear una carpeta `@model` que funciona como ruta paralela.
 
 Luego, en el archivo `layout.tsx` de la carpeta `photo-feed`, pasamos el modal y el children para que se rendericen.
+
+### Route Handlers
+
+[Next.js](https://github.com/vercel/next.js) nos permite crear controladores de solicitudes personalizados para nuestras rutas usando una función llamada **Route Handlers**. 
+
+Los *Route Handlers* también son excelentes para realizar solicitudes de API externas y como se ejecutan en el lado del servidor, garantizan que la información confidencial, como las claves privadas, permanezcan segura y nunca se envíe al navegador.
+
+Ahora, veamos un ejemplo de como contruir un **Route Handler**.
+
+Comenzamos creando una carpeta dentro de `app` llamada `hello` y dentro de ella, un archivo llamado `route.ts`. Esto es una convención de [Next.js](https://github.com/vercel/next.js) que debemos respetar.
+
+Dentro de `route.ts`, creamos una función que se corresponda con el metodo GET de HTTP.
+
+![Next.js 14](https://i.postimg.cc/3N4J2Pyg/next-js-14-codev-99.jpg "Route Handlers")
+
+Con esto, ya basta para crear nuestro primer **Route Handler**. Si navegamos a http://localhost:3000/hello, observamos que la respuesta fue generada.
+
+![Next.js 14](https://i.postimg.cc/PrmNKvf9/next-js-14-codev-100.jpg "Route Handlers")
+
+ Notemos que podemos crear **Route Handlers** para cada página en particular. Por ejemplo, podemos crear la carpeta `dashboard-hr`, dentro de ella un controlador de rutas y luego una carpeta `users` dentro de `dashboard-hr` con su propio controlador.
+
+Por otro lado,tenemos que tener en cuenta los posibles conflictos entre las páginas y los controladores de rutas. Por ejemplo, si creamos una carpeta `profile-hr` y dentro de ella, creamos dos archivos: uno correspondiente a la página `page.tsx` y otro correspondiente al controlador de rutas llamado `route.ts`.
+
+Si navegamos hacia http://localhost:3000/profile-hr, observamos como se muestra el contenido del **Route Handler**.
+
+![Next.js 14](https://i.postimg.cc/PfKwYFy9/next-js-14-codev-101.jpg "Route Handlers")
+
+Para evitar este conflicto, vamos a crear dentro de la carpeta `profile-hr`, una carpeta llamada `api` y allí, pegamos al archivo `route.ts` y dejamos únicamente en ese nivel al archivo `page.tsx`. 
+
+Ahora, si navegamos a http://localhost:3000/profile-hr obtenemos la página.
+
+![Next.js 14](https://i.postimg.cc/pTJjhCVB/next-js-14-codev-102.jpg "Route Handlers")
+
+Y si navegamos a http://localhost:3000/profile-hr/api obtenemos la respuesta de la api.
+
+![Next.js 14](https://i.postimg.cc/63XRpgK3/next-js-14-codev-103.jpg "Route Handlers")
+
 
 
 
