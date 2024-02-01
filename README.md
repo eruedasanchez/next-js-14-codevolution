@@ -47,6 +47,9 @@
 30. [Intercepting Routes](#intercepting-routes)
 31. [Parallel Intercepting Routes](#parallel-intercepting-routes)
 32. [Route Handlers](#route-handlers)
+33. [Handling GET Request](#handling-get-request)
+
+
 
 ### Inicialización del proyecto
 
@@ -756,6 +759,21 @@ Y si navegamos a http://localhost:3000/profile-hr/api obtenemos la respuesta de 
 
 ![Next.js 14](https://i.postimg.cc/63XRpgK3/next-js-14-codev-103.jpg "Route Handlers")
 
+### Handling GET Request
+
+En la sección anterior, aprendimos a como crear un **Route Handler** básico. En esta sección, vamos a aprender a cómo manejar una solicitud o request de tipo GET.
+
+Para esto, vamos a utilizar una herramienta llamada **Thunder Client**. 
+
+Para comenzar, vamos a crear una carpeta dentro de `src` llamada  `comments` y dentro de ella, un archivo llamado `data.ts` que va a contener un arreglo de comentarios que vamos a utilizar como información.
+
+Luego, creamos el **Route Handler** en el archivo `route.ts` y obtenemos la información de los comenatarios.
+
+![Next.js 14](https://i.postimg.cc/vZNrkKFK/next-js-14-codev-104.jpg "Handling GET Request")
+
+Luego, para probar el controlador de rutas, utilizamos Thunder Client presionando el boton **New Request** para realizar la solicitud GET a ese endpoint y vemos que el resultado de la solicitud es el esperado.
+
+![Next.js 14](https://i.postimg.cc/rwmGhkbW/next-js-14-codev-105.jpg "Handling GET Request")
 
 
 
