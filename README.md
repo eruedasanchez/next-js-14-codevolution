@@ -44,6 +44,7 @@
 27. [Parallel Routes](#parallel-routes)
 28. [Unmatched Routes](#unmatched-routes)
 29. [Conditional Routes](#conditional-routes)
+30. [Intercepting Routes](#intercepting-routes)
 
 ### Inicialización del proyecto
 
@@ -648,6 +649,64 @@ Si seteamos la variable en true, obtenemos el siguiente resultado:
 Mientras que si seteamos la variable en `false`, obtenemos el siguiente resultado:
 
 ![Next.js 14](https://i.postimg.cc/rwpF5WdF/next-js-14-codev-91.jpg "Conditional Routes")
+
+### Intercepting Routes
+
+[Next.js](https://github.com/vercel/next.js) introdujo dos patrones de ruteo avanzado. Por un lado, las **rutas paralelas** que ya las vimos anteriormente y las **rutas de intercepción** o **Intercepting Routes** que las vamos a ver ahora. 
+
+La intercepción de rutas permite interceptar o detener el comportamiento de enrutamiento predeterminado para presentar una vista o componente alternativo al navegar a través de UI. Al mismo tiempo que conserva la ruta prevista para escenarios como recargas de páginas. Esto puede ser útil si desea mostrar una ruta mientras mantiene el contexto de la página actual.
+
+Veamos el siguiente ejemplo. Supongamos que estamos frente a un escenario donde nos encontramos navegando en http://localhost:3000/ y presionamos el boton de **Login** que nos redirige a http://localhost:3000/login. Sin embargo, con las rutas de intercepción podemos configurar la aplicación para que muestre un modelo de *login* mientras la URL se actualiza para reflejar la ruta http://localhost:3000/login. 
+
+Veamos un ejemplo de esto en código. Dentro de la carpeta `app`, voy a crear una carpeta `f1` y dentro de ella, el archivo `page.tsx`. Luego, creamos dentro de `f1`, la carpeta `f2` con el archivo `page.tsx` con el siguiente contenido:
+
+![Next.js 14](https://i.postimg.cc/7PVcZnGh/next-js-14-codev-92.jpg "Intercepting Routes")
+
+Ahora, podemos navegar sin problemas desde http://localhost:3000/f1 a http://localhost:3000/f1/f2 simplemente presionando el link que nos redirige a `f2`.
+
+Sin embargo, ahora vamos a definir una ruta de intercepción para cambiar este comportamiento en el mismo nivel.
+
+Para ello, definimos una ruta de intercepción con la notación `(.)f2`. En este caso, la definimos en el mismo nivel que `f2` creando la carpeta `(.)f2` y dentro de ella, el archivo `page.tsx`.
+
+![Next.js 14](https://i.postimg.cc/9FsCdwZG/next-js-14-codev-93.jpg "Intercepting Routes")
+
+Luego, si recargamos la página observamos que cuando clickeamos en el enlace que nos lleva de http://localhost:3000/f1 a http://localhost:3000/f1/f2, ahora se muestra el contenido de la página de intercepción.
+
+![Next.js 14](https://i.postimg.cc/v8qQmNm2/next-js-14-codev-94.jpg "Intercepting Routes")
+
+Pero si recargamos nuevamente la página, observamos que nuevamente se vuelve a mostrar el contenido de la página que se encuentra en la carpeta `f2`.
+
+Hasta ahora, vimos que con la notación `(.)` podemos crear rutas de intercepción al mismo nivel. Veamos que también se pueden crear rutas de intercepción a diferentes niveles. Para ello, creamos dentro de la carpeta `f1`, las carpetas `f2`,`f3` y `f4` con sus respectivos archivos `page.tsx` donde `f4` va a contener un link para navegar a `f3`.
+
+![Next.js 14](https://i.postimg.cc/v8qQmNm2/next-js-14-codev-95.jpg "Intercepting Routes")
+
+
+Por lo tanto, para crear una ruta de intercepción en `f3`, vamos a crear una carpeta dentro de `f4` llamada `(..)f3` y dentro de ella el archivo `page.tsx`. Entonces, cuando naveguemos de http://localhost:3000/f1/f4 a http://localhost:3000/f1/f3, vamos a notar que se va a mostrar el contenido de la ruta interceptada.
+
+![Next.js 14](https://i.postimg.cc/VL6Bk1Mr/next-js-14-codev-95.jpg "Intercepting Routes")
+
+Como en el caso anterior, al recargar la página http://localhost:3000/f1/f3, vamos a ver el contenido del archivo `page.tsx` que se encuentra en la carpeta `f3`.
+
+![Next.js 14](https://i.postimg.cc/jqv4TCWY/next-js-14-codev-96.jpg "Intercepting Routes")
+
+También, podemos utilizar la convención de `(..)(..)` para crear rutas de intercepción dos niveles hacía arriba.
+
+Por último, vamos a utilizar la convención `(...)` para crear rutas de interepción desde el nivel del directorio `app`. Veamos este caso con un ejemplo. 
+
+Supongamos que queremos interceptar la ruta de la página `about` que se encuentra en `about` dentro de la carpeta `app` mientras navegamos desde `f4`.
+
+Para ello, creamos la carpeta `(...)about` y el archivo `page.tsx` que contiene la vista de la ruta interceptada y en el archivo `page.tsx` de la carpeta `f4` creamos el link para navegar hacía la carpeta `about`.
+
+
+![Next.js 14](https://i.postimg.cc/7Zz7QnjX/next-js-14-codev-97.jpg "Intercepting Routes")
+
+Finalmente, vemos que cuando navegamos hacia http://localhost:3000/about la ruta es interceptada pero cuando recargamos la página se muestra la vista de about sin problemas.
+
+![Next.js 14](https://i.postimg.cc/MKNVDF3v/next-js-14-codev-98.jpg "Intercepting Routes")
+
+
+
+
 
 
 
