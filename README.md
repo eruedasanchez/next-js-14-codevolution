@@ -51,8 +51,7 @@
 34. [Handling POST Request](#handling-post-request)
 35. [Handling POST Request](#handling-post-request)
 36. [Dynamic Route Handlers](#dynamic-route-handlers)
-
-
+37. [Handling PATCH Request](#handling-patch-request)
 
 ### Inicialización del proyecto
 
@@ -800,12 +799,23 @@ Pero, primero vamos a enfocarnos en cómo obtener un determinado comentario pasa
 
 Para resolver esto, comenzamos creando una carpeta `[id]` dentro de `comments`. Una vez situados en `[id]`, creamos el archivo `route.ts` y definimos una función de tipo GET.
 
-![Next.js 14](https://i.postimg.cc/44tJfq0V/next-js-14-codev-108.jpg "Handling POST Request")
+![Next.js 14](https://i.postimg.cc/44tJfq0V/next-js-14-codev-108.jpg "Dynamic Route Handlers")
 
 Luego, probamos el endpoint http://localhost:3000/comments/1 con el método GET y obtenemos el resultado esperado.
 
-![Next.js 14](https://i.postimg.cc/SRWqgY9D/next-js-14-codev-109.jpg "Handling POST Request")
+![Next.js 14](https://i.postimg.cc/SRWqgY9D/next-js-14-codev-109.jpg "Dynamic Route Handlers")
 
+### Handling PATCH Request
+
+En esta sección, vamos a aprender cómo manejar las solicitudes PATCH. Una solicitud PATCH realiza modificaciones parciales a un recurso. En nuestro caso, vamos a modificar o actualizar el texto de un comentario.
+
+Como vamos a realizar una solicitud PATCH al endpoint de tipo http://localhost:3000/comments/3 que tiene un número de Id, nos dirigimos a la carpeta `[id]` y en el archivo `route` creamos la función para la solicitud PATCH.
+
+![Next.js 14](https://i.postimg.cc/V6t8TdTr/next-js-14-codev-110.jpg "Handling PATCH Request")
+
+Finalmente, si ejecutamos el endpoint http://localhost:3000/comments/3 con método PATCH, observamos que se actualiza el texto del comentario número 3.
+
+![Next.js 14](https://i.postimg.cc/43qGBz8R/next-js-14-codev-111.jpg "Handling PATCH Request")
 
 
 
