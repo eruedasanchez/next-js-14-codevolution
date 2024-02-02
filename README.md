@@ -49,11 +49,11 @@
 32. [Route Handlers](#route-handlers)
 33. [Handling GET Request](#handling-get-request)
 34. [Handling POST Request](#handling-post-request)
-35. [Handling POST Request](#handling-post-request)
-36. [Dynamic Route Handlers](#dynamic-route-handlers)
-37. [Handling PATCH Request](#handling-patch-request)
-38. [Handling DELETE Request](#handling-delete-request)
-39. [URL Query Parameters](#url-query-parameters)
+35. [Dynamic Route Handlers](#dynamic-route-handlers)
+36. [Handling PATCH Request](#handling-patch-request)
+37. [Handling DELETE Request](#handling-delete-request)
+38. [URL Query Parameters](#url-query-parameters)
+39. [Redirects in Route Handlers](#redirects-in-route-handlers)
 
 ### Inicialización del proyecto
 
@@ -846,6 +846,24 @@ Para realizar esto, vamos a modificar la función GET del archivo `route.ts` de 
 Una vez realizado estos cambios, navegamos a http://localhost:3000/comments?query=first y obtenemos el resultado esperado.
 
 ![Next.js 14](https://i.postimg.cc/KcBfNwxv/next-js-14-codev-116.jpg "URL Query Parameters")
+
+### Redirects in Route Handlers
+
+En esta sección, nos vamos a enfocar en las **redirecciones** de los **controladores de rutas**.
+
+Anteriormente, habíamos desarrollado un controlador del método GET que si pasabamos, por ejemplo, la ruta http://localhost:3000/comments/1 devolvía la información del comentario con Id 1. Dicho controlador se encontraba en la función GET del archivo `route.ts` dentro de la carpeta `[id]`.
+
+Ahora bien, si intentamos obtener la información de http://localhost:3000/comments/4 se produce un error porque no se encuentra definido el Id 4 en el arreglo de comentarios.
+
+Para solucionar esto, vamos a decidir que cuando se ingrese un Id que no se encuentre definido, vamos a redirigir la página a http://localhost:3000/comments para que se muestren todos los comenrtarios.
+
+Esto lo logramos realizando las siguientes modificaciones en la función GET del archivo `route.ts`:
+
+![Next.js 14](https://i.postimg.cc/gJnth2PY/next-js-14-codev-117.jpg "Redirects in Route Handlers")
+
+De esta manera, al navegar sobre http://localhost:3000/comments/4 vamos a ser redirigidos a http://localhost:3000/comments/.
+
+
 
 
 
