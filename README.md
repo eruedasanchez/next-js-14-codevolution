@@ -57,6 +57,7 @@
 40. [Headers in Route Handlers](#headers-in-route-handlers)
 41. [Cookies in Route Handlers](#cookies-in-route-handlers)
 42. [Caching in Route Handlers](#caching-in-route-handlers)
+43. [Middleware](#middleware)
 
 ### Inicialización del proyecto
 
@@ -987,6 +988,56 @@ Además, contamos con otras formas de almacenamiento que no sean en *caché*:
 - Utilizar funciones dinámicas como *headers()* y *cookies()*
 
 - Utilizar cualquier otro método HTTP que no sea GET.
+
+### Middleware
+
+En esta sección, vamos a trabajar sobre **Middleware**.
+
+El middleware es una característica poderosa que ofrece [Next.js](https://github.com/vercel/next.js) que ofrece una forma sólida de interceptar y controlar el flujo de solicitudes y respuestas dentro de nuestras aplicaciones.
+
+Esto lo hace globalmente mejorando significativamente características como la redirección, autenticación, el manejo de cookies y headers por ejemplo.
+
+Para crear un *middleware*, creamos un archivo `middleware.ts` dentro de la carpeta `src`.
+
+Los *middlewares* nos permite especificar las partes donde estarán activos:
+
+- Configuración de comparación personalizada 
+
+- Estados condicionales
+
+Veamos el siguiente escenario. Supongamos que al navegar de http://localhost:3000/profile queremos que sea redirigido a http://localhost:3000/
+
+Para ello, realizamos lo que se muestra a continuación en el archivo `middleware.ts`.
+
+![Next.js 14](https://i.postimg.cc/1XPMvPbN/next-js-14-codev-134.jpg "Middleware")
+
+De esta forma, logramos que estando en cualquier ruta, al navegar en http://localhost:3000/profile se redirige a http://localhost:3000/.
+
+Ahora, vamos a utilizar el método de **Estados o declaraciones condicionales**. Para eso, vamos a realizar las siguientes modificaciones en el archivo `middleware.ts`:
+
+![Next.js 14](https://i.postimg.cc/rz6Rk6BC/next-js-14-codev-135.jpg "Middleware")
+
+Para finalizar, vamos a explorar el uso de *cookies* y *headers* en el *middleware*.
+
+Para ello, realizamos las siguientes modificaciones en el archivo `middleware.ts`.
+
+![Next.js 14](https://i.postimg.cc/fR1gdfVr/next-js-14-codev-136.jpg "Middleware")
+
+Una vez realizado esto, si navegamos a http://localhost:3000/profile, vemos que la cookie fue generada porque anteriormente no habia sido definido para esta página.
+
+![Next.js 14](https://i.postimg.cc/2S1K3KSW/next-js-14-codev-137.jpg "Middleware")
+
+Por último, vamos a configurar un *header* en el archivo `middleware.ts`.
+
+![Next.js 14](https://i.postimg.cc/fLsDh9hJ/next-js-14-codev-138.jpg "Middleware")
+
+Con esto, logramos que en cada página que se navegue se agregue el *header* `custom-header` con el valor `custom-value`.
+
+
+
+
+
+
 
 
 
