@@ -56,6 +56,7 @@
 39. [Redirects in Route Handlers](#redirects-in-route-handlers)
 40. [Headers in Route Handlers](#headers-in-route-handlers)
 41. [Cookies in Route Handlers](#cookies-in-route-handlers)
+42. [Caching in Route Handlers](#caching-in-route-handlers)
 
 ### Inicialización del proyecto
 
@@ -955,6 +956,37 @@ Ahora, si realizamos la solicitud, vemos que la cookie que ya se encuentra confi
 
 ![Next.js 14](https://i.postimg.cc/qq22GTZ6/next-js-14-codev-130.jpg "Cookies in Route Handlers")
 
+### Caching in Route Handlers
+
+En esta última sección acerca de los controladores de rutas, exploraremos el almacenamiento en caché.
+
+Los controladores de ruta se almacenan en *caché* de forma predeterminada cuando se utiliza el método GET con un objeto de respuesta en [Next.js](https://github.com/vercel/next.js). 
+
+Veamos esto con un ejemplo. Comenzamos creando de la carpeta `app`, una carpeta llamada `time` y dentro de ella, un controlador mediante el archivo `route.ts`.
+
+![Next.js 14](https://i.postimg.cc/vBxZnkr6/next-js-14-codev-131.jpg "Caching in Route Handlers")
+
+Ahora, al ejecutar la solicitud GET en http://localhost:3000/time, observamos que obtenemos el horario. Y cada vez que recargamos la página, también se actualiza el horario.
+
+![Next.js 14](https://i.postimg.cc/L5f5cwhM/next-js-14-codev-132.jpg "Caching in Route Handlers")
+
+Esto se actualiza de manera correcta en el modo de desarrollo (`dev`). 
+
+Ahora, detenemos el servidor y los construimos ejecutando `npm run build` y luego `npm run start`. Pero en este caso, observamos que al recargar varias veces la página no se actualiza el horario.
+
+Por lo tanto, queremos informar a los recursos compartidos que no queremos que la respuesta se almacené en *caché*. Para ello, podemos utilizar lo que se conoce como **Segment Config Option** con un modo dinámico de la siguiente manera forzando que la información no se almacene en caché:
+
+![Next.js 14](https://i.postimg.cc/HkSZKsKX/next-js-14-codev-133.jpg "Caching in Route Handlers")
+
+Detenemos el servidor y los construimos ejecutando `npm run build` y luego `npm run start`. Ahora, observamos que al recargar la página, también se actualiza el horario.
+
+Además, contamos con otras formas de almacenamiento que no sean en *caché*:
+
+- Utilizar un *Request object* con el método GET.
+
+- Utilizar funciones dinámicas como *headers()* y *cookies()*
+
+- Utilizar cualquier otro método HTTP que no sea GET.
 
 
 
