@@ -55,6 +55,7 @@
 38. [URL Query Parameters](#url-query-parameters)
 39. [Redirects in Route Handlers](#redirects-in-route-handlers)
 40. [Headers in Route Handlers](#headers-in-route-handlers)
+41. [Cookies in Route Handlers](#cookies-in-route-handlers)
 
 ### Inicialización del proyecto
 
@@ -916,6 +917,43 @@ Ahora, recargamos la página y vemos cómo la respuesta es devuelta en formato H
 
 ![Next.js 14](https://i.postimg.cc/tTrjyh1R/next-js-14-codev-124.jpg "Headers in Route Handlers")
 
+### Cookies in Route Handlers
+
+En esta sección, vamos a aprender a como manejar las cookies en el controlador de rutas.
+
+Las **cookies** son pequeñas piezas de información que un servidor envía a un navegador web de un usuario. El navegador puede almacenar la cookie y enviarla nuevamente al servidor para *request* posteriores.
+
+Las cookies se utilizan principalmente con tres propósitos:
+
+ 1. Administración de sesiones como *logins* y *carrito de compras*.
+
+ 2. Personalización como *themes* y *preferencias del usuario*.
+
+ 3. Tracking o seguimiento como registrar y analizar el comportamiento de un usuario.
+
+Ahora, vamos a configurar y obtener una cookie. Para ello, una opción es establecer el encabezado en la función GET del archivo `route.ts` en el que venimos trabajando.
+
+![Next.js 14](https://i.postimg.cc/NGHM6GPJ/next-js-14-codev-125.jpg "Cookies in Route Handlers")
+
+Si ejecutamos la solicitud http://localhost:3000/profile-hr/api con el método GET, obtenemos que tenemos definida una nueva cookie.
+
+![Next.js 14](https://i.postimg.cc/brkwpLtc/next-js-14-codev-126.jpg "Cookies in Route Handlers")
+
+Ahora, queremos leer la cookie. Para realizar esto, modificamos el archivo `route.ts` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/m2XCTP4g/next-js-14-codev-127.jpg "Cookies in Route Handlers")
+
+Una vez realizado esto, ejecutamos nuevamente la solicitud GET a http://localhost:3000/profile-hr/api y obtenemos por consola el valor de la cookie.
+
+![Next.js 14](https://i.postimg.cc/QxxcLpRz/next-js-14-codev-128.jpg "Cookies in Route Handlers")
+
+La segunda opción para configurar y obtener cookies es utilizando la función de cookies proporcionada por [Next.js](https://github.com/vercel/next.js) utilizando el método *set* para configurarlas y el método *get* para obtenerlas de la siguiente manera:  
+
+![Next.js 14](https://i.postimg.cc/76Fg76Xy/next-js-14-codev-129.jpg "Cookies in Route Handlers")
+
+Ahora, si realizamos la solicitud, vemos que la cookie que ya se encuentra configurada y la podemos obtener sin problemas.
+
+![Next.js 14](https://i.postimg.cc/qq22GTZ6/next-js-14-codev-130.jpg "Cookies in Route Handlers")
 
 
 
