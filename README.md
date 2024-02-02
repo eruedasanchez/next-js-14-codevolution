@@ -52,6 +52,7 @@
 35. [Handling POST Request](#handling-post-request)
 36. [Dynamic Route Handlers](#dynamic-route-handlers)
 37. [Handling PATCH Request](#handling-patch-request)
+38. [Handling DELETE Request](#handling-delete-request)
 
 ### Inicialización del proyecto
 
@@ -817,6 +818,19 @@ Finalmente, si ejecutamos el endpoint http://localhost:3000/comments/3 con méto
 
 ![Next.js 14](https://i.postimg.cc/43qGBz8R/next-js-14-codev-111.jpg "Handling PATCH Request")
 
+### Handling DELETE Request
+
+En esta sección, vamos a aprender como manejar las solicitudes DELETE. En nuestro caso, vamos a eliminar un comentario de acuerdo a su id. Tomamos el id con valor 3 para realizar esta prueba.
+
+Para ello, vamos a crear una función para manejar las solicitudes DELETE en el archivo `route.ts`.
+
+![Next.js 14](https://i.postimg.cc/vmy1zxmB/next-js-14-codev-112.jpg "Handling DELETE Request")
+
+Luego, recargamos el servidor y ejecutamos el endpoint con el método DELETE en Thunder Client y obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/NfW2KzqR/next-js-14-codev-113.jpg "Handling DELETE Request")
+
+![Next.js 14](https://i.postimg.cc/W1gFgwTC/next-js-14-codev-114.jpg "Handling DELETE Request")
 
 
 
