@@ -1,6 +1,6 @@
 <div align="center">
   
-  ![GitHub repo size](https://img.shields.io/github/repo-size/eruedasanchez/nextJS-14)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/eruedasanchez/NJS-14)
   ![GitHub stars](https://img.shields.io/github/stars/eruedasanchez/nextJS-14?style=social)
   ![GitHub forks](https://img.shields.io/github/forks/eruedasanchez/nextJS-14?style=social)
   [![Twitter Follow](https://img.shields.io/twitter/follow/RSanchez_Eze?style=social)](https://twitter.com/intent/follow?screen_name=RSanchez_Eze)
@@ -54,6 +54,7 @@
 37. [Handling DELETE Request](#handling-delete-request)
 38. [URL Query Parameters](#url-query-parameters)
 39. [Redirects in Route Handlers](#redirects-in-route-handlers)
+40. [Headers in Route Handlers](#headers-in-route-handlers)
 
 ### Inicialización del proyecto
 
@@ -862,6 +863,62 @@ Esto lo logramos realizando las siguientes modificaciones en la función GET del
 ![Next.js 14](https://i.postimg.cc/gJnth2PY/next-js-14-codev-117.jpg "Redirects in Route Handlers")
 
 De esta manera, al navegar sobre http://localhost:3000/comments/4 vamos a ser redirigidos a http://localhost:3000/comments/.
+
+### Headers in Route Handlers
+
+En esta sección, vamos a aprender a manejar los encabezados o headers en los controladores de ruta. Comencemos viendo el concepto de *header*.
+
+Los headers HTTP representan *metadata* asociada a una API request y a una respuesta. Estos metadatos se pueden clasificar en dos categorias:
+
+- **Request Headers**: Estos son enviados por el cliente, por ejemplo un navegador web, al servidor. Contienen la información esencial acerca de la *request* la cual ayuda al servidor a entenderla y procesarla correctamente. Por ejemplo, podemos nombrar a:
+
+1. User Agent la cual identifica el navegador y el sistema operativo al servidor.
+
+2. Accept que indica el tipo de contenido como texto, imagen o video que el cliente puede procesar.
+
+3. Authorization que es utilizado por el cliente para autenticarse en el servidor.
+
+- **Response Headers**: Se envian desde el servidor al cliente y proveen información acerca del servidor y los datos que se envian en la respuesta. Por ejemplo, podemos nombrar a:
+
+1. Content-Type: Indica el tipo de medio de la respuesta. Indica al cliente el tipo de dato del contenido retornado como por ejemplo, text/document para documentos HTML o application/json para JSON data.
+
+Veamos el siguiente ejemplo. Creamos una solicitud GET para la ruta http://localhost:3000/profile-hr/api con Thunder Client y agregamos el Header *Authorization* con el valor Bearer 12345. 
+
+![Next.js 14](https://i.postimg.cc/VsRSNJQt/next-js-14-codev-118.jpg "Headers in Route Handlers")
+
+Ahora, para leer estos encabezados, tenemos dos maneras.
+
+La primera es extraer los headers desde la request modificando el archivo `route.ts` que se encuentra dentro de la carpeta `api` en `profile-hr` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/yxV63Ph4/next-js-14-codev-119.jpg "Headers in Route Handlers")
+
+Ahora, si realizamos nuevamente la solicitud a http://localhost:3000/profile-hr/api, observamos que por consola se devuelve el valor **Bearer 12345** correspondiente al header **Authorization**.
+
+![Next.js 14](https://i.postimg.cc/yxv1mZnJ/next-js-14-codev-120.jpg "Headers in Route Handlers")
+
+Si bien este enfoque funciona correctamente, podemos utilizar la función de headers que [Next.js](https://github.com/vercel/next.js) nos provee.
+
+Para ello, realizamos las siguientes modificaciones en el archivo `route.ts` en la función GET:
+
+![Next.js 14](https://i.postimg.cc/J4z41p4j/next-js-14-codev-121.jpg "Headers in Route Handlers")
+
+Finalmente, si ejecutamos la solicitud GET a http://localhost:3000/profile-hr/api, observamos que se obtiene el mismo resultado. 
+
+![Next.js 14](https://i.postimg.cc/8kHzQ2D1/next-js-14-codev-122.jpg "Headers in Route Handlers")
+
+Ahora, veamos como configurar los headers salientes. Los encabezados devueltos son de solo lectura. Entonces, para configurar los encabezados, se debe devolver una nueva respuesta con los nuevos encabezados.
+
+Veamos esto con un ejemplo. Supongamos que ahora queremos que la respuesta de la función GET sea en formato HTML. Para ello, vamos a agregarle la etiqueta *h1* a la respuesta de la función GET.
+
+![Next.js 14](https://i.postimg.cc/dQxYxjP4/next-js-14-codev-123.jpg "Headers in Route Handlers")
+
+Ahora, recargamos la página y vemos cómo la respuesta es devuelta en formato HTML.
+
+![Next.js 14](https://i.postimg.cc/tTrjyh1R/next-js-14-codev-124.jpg "Headers in Route Handlers")
+
+
+
+
 
 
 
