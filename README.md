@@ -53,6 +53,7 @@
 36. [Dynamic Route Handlers](#dynamic-route-handlers)
 37. [Handling PATCH Request](#handling-patch-request)
 38. [Handling DELETE Request](#handling-delete-request)
+39. [URL Query Parameters](#url-query-parameters)
 
 ### Inicialización del proyecto
 
@@ -831,6 +832,21 @@ Luego, recargamos el servidor y ejecutamos el endpoint con el método DELETE en 
 ![Next.js 14](https://i.postimg.cc/NfW2KzqR/next-js-14-codev-113.jpg "Handling DELETE Request")
 
 ![Next.js 14](https://i.postimg.cc/W1gFgwTC/next-js-14-codev-114.jpg "Handling DELETE Request")
+
+### URL Query Parameters
+
+En esta sección, vamos a aprender a trabajar como **Query Params**.
+
+Ahora, si ejecutamos el endpoint con método GET http://localhost:3000/comments?query=first queremos filtrar todos los mensajes que contengan la palabra `first`.
+
+Para realizar esto, vamos a modificar la función GET del archivo `route.ts` de la carpeta `comments` de la siguiente manera:
+
+![Next.js 14](https://i.postimg.cc/pXvZ1CLQ/next-js-14-codev-115.jpg "URL Query Parameters")
+
+Una vez realizado estos cambios, navegamos a http://localhost:3000/comments?query=first y obtenemos el resultado esperado.
+
+![Next.js 14](https://i.postimg.cc/KcBfNwxv/next-js-14-codev-116.jpg "URL Query Parameters")
+
 
 
 
